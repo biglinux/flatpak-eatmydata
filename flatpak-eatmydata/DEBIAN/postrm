@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+package_name=flatpak-eatmydata
+case "$1" in
+  remove)
+    dpkg-divert --package "$package_name" --rename --remove "/usr/libexec/flatpak-system-helper"
+    dpkg-divert --package "$package_name" --rename --remove "/usr/libexec/revokefs-fuse"
+    ;;
+  purge)
+    dpkg-divert --package "$package_name" --rename --remove "/usr/libexec/flatpak-system-helper"
+    dpkg-divert --package "$package_name" --rename --remove "/usr/libexec/revokefs-fuse"
+;;
+esac
+exit 0

@@ -1,0 +1,7 @@
+44620a3108c99662b50a7ccb2f9fa5c0  DEBIAN/preinst
+39c24c6b0aaf546546ec08721df45c72  DEBIAN/postrm
+d41d8cd98f00b204e9800998ecf8427e  DEBIAN/md5sums
+96483f0806b6d255a56139db50735003  DEBIAN/control
+09bbdda3c50e538aecf9a6266d9e5c78  usr/bin/apt
+ebcd79a4d232ec6403a198d5c0df8566  usr/bin/apt-get
+e4255e3d30627a1856ac4335a21081b2  usr/bin/dpkg

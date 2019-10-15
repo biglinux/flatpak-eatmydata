@@ -1,0 +1,30 @@
+#!/bin/sh
+set -e
+package_name=flatpak-eatmydata
+case "$1" in
+  install)
+if [ "$(dpkg-divert --list "/usr/libexec/flatpak-system-helper")" = "" ]
+then
+    dpkg-divert --package "$package_name" --divert "/usr/libexec/flatpak-system-helper.distrib" --rename "/usr/libexec/flatpak-system-helper"
+fi
+
+if [ "$(dpkg-divert --list "/usr/libexec/revokefs-fuse")" = "" ]
+then
+    dpkg-divert --package "$package_name" --divert "/usr/libexec/revokefs-fuse.distrib" --rename "/usr/libexec/revokefs-fuse"
+fi
+
+    ;;
+  upgrade)
+if [ "$(dpkg-divert --list "/usr/libexec/flatpak-system-helper")" = "" ]
+then
+    dpkg-divert --package "$package_name" --divert "/usr/libexec/flatpak-system-helper.distrib" --rename "/usr/libexec/flatpak-system-helper"
+fi
+
+if [ "$(dpkg-divert --list "/usr/libexec/revokefs-fuse")" = "" ]
+then
+    dpkg-divert --package "$package_name" --divert "/usr/libexec/revokefs-fuse.distrib" --rename "/usr/libexec/revokefs-fuse"
+fi
+
+;;
+esac
+exit 0

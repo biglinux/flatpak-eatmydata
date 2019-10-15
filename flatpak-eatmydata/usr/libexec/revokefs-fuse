@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ "$(findmnt -n -o FSTYPE -T /)" = "btrfs" ]; then
+    eatmydata /usr/libexec/revokefs-fuse.distrib "$@"
+else
+    /usr/libexec/revokefs-fuse.distrib "$@"
+fi

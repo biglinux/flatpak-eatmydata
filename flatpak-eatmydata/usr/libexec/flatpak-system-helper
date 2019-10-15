@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ "$(findmnt -n -o FSTYPE -T /)" = "btrfs" ]; then
+    eatmydata /usr/libexec/flatpak-system-helper.distrib "$@"
+else
+    /usr/libexec/flatpak-system-helper.distrib "$@"
+fi
